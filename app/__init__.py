@@ -21,12 +21,15 @@ def create_app(config=Config):
     login.init_app(app)
     toolbar.init_app(app)
 
+    from app.views.dashboard import dashboard
+    app.register_blueprint(dashboard)
+
     from app.views.authentication import auth
     app.register_blueprint(auth, url_prefix='/auth')
 
-    @app.route('/')
-    def index():
-        return "alochym"
+    # @app.route('/')
+    # def index():
+    #     return "alochym"
 
     return app
 
