@@ -27,6 +27,8 @@ def create_app(config=Config):
     from app.views.authentication import auth
     app.register_blueprint(auth, url_prefix='/auth')
 
+    from app.views.cdr import cdr
+    app.register_blueprint(cdr, url_prefix="/cdr")
     # @app.route('/')
     # def index():
     #     return "alochym"
