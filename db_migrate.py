@@ -1,12 +1,13 @@
 from app import create_app, db
 from app.models.user import User
+from app.models.cdr import Cdr
 import click
 
 app = create_app()
 
 @app.shell_context_processor
 def make_shell_context():
-    return {'db': db, 'User': User}
+    return {'db': db, 'User': User, 'Cdr': Cdr}
 
 @app.cli.command(with_appcontext=False)
 def initdb():

@@ -76,3 +76,26 @@ States					| Meaning
 **CS_HANGUP**			| Channel is flagged for hangup and ready to end.
 **CS_REPORTING**		| Channel is ready to collect call detail.
 **CS_DESTROY**			| Channel is ready to be destroyed and out of the state machine.
+# CDR fields
+- Caller-ANI
+- Caller-Context
+- Caller-Network-Addr
+- Channel-Call-UUID
+- Core-UUID
+- Event-Name
+- Hangup-Cause
+- Other-Leg-Destination-Number
+- Other-Leg-Network-Addr
+- variable_answer_epoch
+- variable_answer_stamp
+- variable_answersec
+- variable_billsec
+- variable_duration
+- variable_end_epoch
+- variable_end_stamp
+- variable_originating_leg_uuid
+- variable_rtp_use_codec_name
+- variable_rtp_use_codec_ptime
+- variable_rtp_use_codec_rate
+- variable_rtp_audio_in_mos
+- variable_sip_gateway_name
