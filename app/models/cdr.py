@@ -59,4 +59,4 @@ class Cdr(db.Model):
     v_uuid = db.Column(db.String(512), nullable=True)
 
     def __repr__(self):
-        return f"Caller {self.ani} call to {self.dnis} with duration {self.v_duration} and bill {self.v_billsec}"
+        return f"Caller {self.ani} call to {self.dnis} with duration {self.v_duration} and bill {self.v_billsec} but answer {self.v_answersec}"
