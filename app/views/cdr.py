@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify,render_template
 from app import db
 from app.models.cdr import Cdr
 import json
@@ -7,8 +7,9 @@ cdr = Blueprint('cdr', __name__)
 
 @cdr.route('/')
 def cdr_index():
-
-    return "cdr_index"
+    cdrs = Cdr.query.all()
+    # print(cdrs)
+    return render_template("cdr/index.html", cdrs=cdrs)
 
 @cdr.route('/create', methods=['POST'])
 def cdr_create():
