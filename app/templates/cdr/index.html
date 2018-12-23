@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% from "macro_page.html" import pagination with context %}
+{% block content %}
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Data Tables
+        <!-- <small>advanced tables</small> -->
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="{{ url_for('cdr.cdr_index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <!-- <li><a href="#">Tables</a></li>
+        <li class="active">Data tables</li> -->
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <!-- <div class="box-header">
+              <h3 class="box-title">Hover Data Table</h3>
+            </div> -->
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Caller No</th>
+                  <th>Callee No</th>
+                  <th>Bridge Time</th>
+                  <th>Answer Time</th>
+                  <th>Billing Time</th>
+                  <th>Duration</th>
+                  <th>Mos</th>
+                  <th>End Time</th>
+                  <th>Channel State</th>
+                  <th>Hangup Cause</th>
+                </tr>
+                </thead>
+                <tbody>
+                  {% for i in cdrs.items %}
+                  <tr>
+                    <td>{{i.id}}</td>
+                    <td>{{i.ani}}</td>
+                    <td>{{i.dnis}}</td>
+                    <td>{{i.v_bridge_epoch}}</td>
+                    <td>{{i.v_answersec}}</td>
+                    <td>{{i.v_billsec}}</td>
+                    <td>{{i.v_duration}}</td>
+                    <td>{{i.v_mos}}</td>
+                    <td>{{i.v_end_epoch}}</td>
+                    <td>{{i.channel_state}}</td>
+                    <td>{{i.hangup_cause}}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+                <tfoot>
+                <tr>
+                </tr>
+                </tfoot>
+              </table>
+              <nav aria-label="Page navigation" class="text-center">
+                  {{ pagination(cdrs, 'cdr.cdr_index') }}
+              </nav>
+
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+{% endblock %}
