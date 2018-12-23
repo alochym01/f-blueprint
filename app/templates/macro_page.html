@@ -1,0 +1,29 @@
+{% macro pagination(pages, route) %}
+<ul class="pagination pagination-lg">
+    <li>
+        {% if pages.has_prev %}
+        <a href="{{ url_for(route, page=pages.prev_num) }}" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+        </a>
+        {% endif %}
+    </li>
+    {% for page in pages.iter_pages() %}
+    <li>
+        {% if page %}
+        {% if page != pages.page %}
+            <a href="{{ url_for(route, page=page) }}">{{ page }}</a>
+        {% endif %}
+        {% else %}
+        <span class=ellipsis>…</span>
+        {% endif %}
+    </li>
+    {% endfor %}
+    <li>
+        {% if cdrs.has_next %}
+        <a href="{{ url_for(route, page=pages.next_num) }}" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+        </a>
+        {% endif %}
+    </li>
+</ul>
+{% endmacro %}

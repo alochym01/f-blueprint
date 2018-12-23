@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify,render_template
+from flask import Blueprint, request, jsonify,render_template, current_app, url_for
 from app import db
 from app.models.cdr import Cdr
 import json
@@ -7,8 +7,8 @@ cdr = Blueprint('cdr', __name__)
 
 @cdr.route('/')
 def cdr_index():
-    cdrs = Cdr.query.all()
-    # print(cdrs)
+    page = request.args.get('page', 1, type=int)
+    cdrs = Cdr.query.paginate(page, current_app.config['ITEMS_PER_PAGE'], False)
     return render_template("cdr/index.html", cdrs=cdrs)
 
 @cdr.route('/create', methods=['POST'])
